@@ -1,4 +1,4 @@
-const data = require('../data.json')
+const data = require('../../data.json')
 
 for (let i = 0; i < data.recipes.length; i++) {
   data.recipes[i].id = i
@@ -24,6 +24,7 @@ exports.edit = function(req, res) {
   res.render('admin/edit', { recipes: data.recipes })
 
 }
+
 
 
 // exports.post = function(req, res) {
