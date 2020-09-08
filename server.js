@@ -1,11 +1,6 @@
 const express = require('express')
 const nunjucks = require('nunjucks')
-
-const recipes = require('./data')
-
-for (let i = 0; i < recipes.length; i++) {
-  recipes[i].id = i
-}
+const routes = require('./routes')
 
 server = express()
 
@@ -18,25 +13,6 @@ nunjucks.configure('views', {
   noCache: true
 })
 
-server.get('/', function(req, res) {
-  res.render('home', { recipes })
-})
-
-server.get('/recipes', function(req, res) {
-  res.render('recipes', { recipes })
-})
-
-server.get('/about', function(req, res) {
-  res.render('about')
-})
-
-server.get('/details', function(req, res) {
-  const id = req.query.id
-
-  const recipe = recipes.find(recipe => recipe.id == id)
-
-  res.render('details', { recipe })
-})
-
+server.use(routes)
 
 server.listen(3333)

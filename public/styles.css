@@ -18,6 +18,17 @@ header {
   justify-content: center;
 }
 
+h2 {
+  font-size: 24px;
+}
+
+
+.header-admin {
+  height: 80px;
+  background: #111;
+  margin-bottom: 55px;
+}
+
 .header-content {
   max-width: 940px;
   width: 100%;
@@ -235,4 +246,112 @@ footer {
   color: #999999;
   font-weight: bold;
   margin-left: 8px;
+}
+
+/* Recipes List Admin */
+.recipes-container h2 {
+}
+
+.recipes-list-admin {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+
+.recipe-card-admin {
+  text-decoration: none;
+  color: #111111;
+  display: flex;
+}
+
+.recipe-card-admin img {
+  width: 172px;
+  height: 80px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+
+.card-informations-admin {
+  margin-left: 20px;
+}
+
+.card-informations-admin strong {
+  font-weight: 500;
+  font-size: 18px;
+  color: #111111;
+}
+
+.card-informations-admin p {
+  font-size: 14px;
+  color: #777777;
+}
+
+.card-informations-admin a {
+  text-decoration: none;
+  font-size: 14px;
+  color: #6558C3;
+}
+
+.recipe-card p {
+  margin: 5px 0 10px;
+  color: #777777
+}
+
+/* Create Recipe Admin */
+.create-recipe {
+
+}
+
+.create-recipe div:first-of-type {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+}
+.create-recipe div {
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.create-recipe div label {
+  margin-bottom: 10px;
+  font-size: 19px;
+  font-weight: bold;
+  color: #111111;
+}
+
+.create-recipe div input {
+  height: 49px;
+  border: 1px solid #DDDDDD;
+  border-radius: 4px;
+  border-radius: 4px;
+}
+
+.create-recipe div span {
+  color: #6558C3;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.save-button {
+  font-weight: bold;
+  font-size: 16px;
+  color: #FFFFFF;
+  padding: 9px 20px;
+  background-color: #6558C3;
+  border-radius: 4px;
+}
+
+.delete-button {
+  font-weight: bold;
+  font-size: 16px;
+  color: #FFFFFF;
+  padding: 9px 20px;
+  background-color: #DC4747;
+  border-radius: 4px;
+  margin-right: 10px;
 }

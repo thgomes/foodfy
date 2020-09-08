@@ -1,0 +1,30 @@
+{% extends 'admin/layout.njk' %}
+
+{% block content %}
+
+<main>
+  <div class="main-content">
+    <h3>Gerencias receitas</h3>
+    <div class="recipes-container-admin">
+      <ul class="recipes-list-admin">
+        {%for recipe in recipes%}
+          <li>
+            <article id="{{recipe.id}}" class="recipe-card-admin">
+              <img src="{{recipe.image}}" alt="{{recipe.title}}">
+              <div class="card-informations-admin">
+                <strong>{{recipe.title}}</strong>
+                <p>por {{recipe.author}}</p>
+                <a href="">Visualizar</a>
+              </div>
+
+            </article>
+          </li>
+        {%endfor%}
+      </ul>
+    </div>
+  </div>
+</main>
+
+<script src="scripts.js"></script>
+
+{% endblock %}
