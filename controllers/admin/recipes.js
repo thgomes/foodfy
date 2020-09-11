@@ -1,3 +1,4 @@
+const fs = require('fs')
 const data = require('../../data.json')
 
 for (let i = 0; i < data.recipes.length; i++) {
@@ -5,35 +6,79 @@ for (let i = 0; i < data.recipes.length; i++) {
 }
 
 exports.index = function(req, res) {
-  res.render('admin/recipes', { recipes: data.recipes })
+  return res.render('admin/recipes', { recipes: data.recipes })
 }
 
 exports.create = function(req, res) {
-  res.render('admin/create', { recipes: data.recipes })
+  return res.render('admin/create', { recipes: data.recipes })
 }
 
 exports.show = function(req, res) {
-  const id = req.params.id
+  const { id } = req.params
 
   const recipe = data.recipes.find(recipe => recipe.id == id)
 
-  res.render('admin/details', { recipe })
+  if (!recipe) {
+    return res.send('Recipe not found!')
+  }
+
+  return res.render('admin/details', { recipe })
 }
 
 exports.edit = function(req, res) {
-  res.render('admin/edit', { recipes: data.recipes })
+  const { id } = req.params
 
+  const recipe = data.recipes.find(recipe => recipe.id == id)
+
+  if (!recipe) {
+    return res.send('Recipe not found')
+  }
+
+  return res.render('admin/edit', { recipes: data.recipes })
 }
 
 
 
-// exports.post = function(req, res) {
+exports.post = function(req, res) {
+  const keys = Object.keys(req.body)
 
-// }
+  for (key of keys) {
+    if (req.body[key] == '') {
+      return res.send('Please, fill all fields!')
+    }
+  }
 
-// exports.put = function(req, res) {
+  let { image, title, author, ingredients, preparation, information } = req.body
 
-// }
+  ingredients = ingredients.split(',').map(ingredient => {
+    return ingredient.trim()
+  })
+
+  preparation = preparation.split(',').map(step => {
+    return step.trim()
+  })
+
+  data.recipes.push({
+    image,
+    title,
+    author,
+    ingredients,
+    preparation,
+    information
+  })
+
+  fs.writeFile('data.json', JSON.stringify(data, null, function(err) {
+    if (err) {
+      return res.send('Write file error')
+    }
+
+    return res.redirect('/students')
+  }))
+}
+
+exports.put = function(req, res) {
+
+}
 
 // exports.delete = function(req, res) {
 
