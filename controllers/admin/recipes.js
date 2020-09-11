@@ -40,7 +40,9 @@ exports.edit = function(req, res) {
 
 
 exports.post = function(req, res) {
+  console.log(req.body)
   const keys = Object.keys(req.body)
+
 
   for (key of keys) {
     if (req.body[key] == '') {
@@ -67,13 +69,13 @@ exports.post = function(req, res) {
     information
   })
 
-  fs.writeFile('data.json', JSON.stringify(data, null, function(err) {
+  fs.writeFile('data.json', JSON.stringify(data, null, 2), function(err) {
     if (err) {
       return res.send('Write file error')
     }
 
-    return res.redirect('/students')
-  }))
+    return res.redirect('/admin/recipes')
+  })
 }
 
 exports.put = function(req, res) {
