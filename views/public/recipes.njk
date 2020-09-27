@@ -9,8 +9,11 @@
         {%for recipe in recipes%}
           <li>
             <article id="{{recipe.id}}" class="recipe-card">
-              <img src="{{recipe.image}}" alt="{{recipe.title}}">
-              <strong>{{recipe.title}}</strong>
+              <a href="/details/{{recipe.id}}">
+                <img src="{{recipe.image}}" alt="{{recipe.title}}">
+                <strong>{{recipe.title}}</strong>
+              </a>
+
               <p>por {{recipe.author}}</p>
             </article>
           </li>

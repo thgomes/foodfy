@@ -8,6 +8,6 @@ const routes = new Router()
 routes.get('/', home.index)
 routes.get('/recipes', recipes.index)
 routes.get('/about', about.show)
-routes.get('/details', recipes.show)
+routes.get('/details/:id', recipes.show)
 
 module.exports = routes

@@ -9,7 +9,7 @@ exports.index = function(req, res) {
 }
 
 exports.show = function(req, res) {
-  const id = req.query.id
+  const { id } = req.params
 
   const recipe = data.recipes.find(recipe => recipe.id == id)
 
