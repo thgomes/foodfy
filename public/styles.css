@@ -22,7 +22,6 @@ h2 {
   font-size: 24px;
 }
 
-
 .header-admin {
   height: 80px;
   background: #111;
@@ -203,6 +202,12 @@ footer {
 }
 
 /* === Details === */
+
+.details-header {
+  display: flex;
+  justify-content: space-between;
+}
+
 .recipe-details img {
   max-width: 940;
   width: 100%;
@@ -346,7 +351,7 @@ footer {
   margin-top: 15px;
 }
 
-.save-button {
+.save-button, .edit-button {
   font-weight: bold;
   font-size: 16px;
   color: #FFFFFF;
@@ -354,6 +359,8 @@ footer {
   background-color: #6558C3;
   border-radius: 4px;
   cursor: pointer;
+  text-decoration: none;
+  height: 100%;
 }
 
 .delete-button {
