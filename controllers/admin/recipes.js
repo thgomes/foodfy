@@ -1,10 +1,6 @@
 const fs = require('fs')
 const data = require('../../data.json')
 
-for (let i = 0; i < data.recipes.length; i++) {
-  data.recipes[i].id = i
-}
-
 exports.index = function(req, res) {
   return res.render('admin/recipes', { recipes: data.recipes })
 }
@@ -40,7 +36,6 @@ exports.edit = function(req, res) {
 
 
 exports.post = function(req, res) {
-  console.log(req.body)
   const keys = Object.keys(req.body)
 
 
@@ -60,7 +55,10 @@ exports.post = function(req, res) {
     return step.trim()
   })
 
+  const id = Number(data.recipes.length + 1)
+
   data.recipes.push({
+    id,
     image,
     title,
     author,
@@ -111,5 +109,3 @@ exports.put = function(req, res) {
 }
 
 // exports.delete = function(req, res) {
-
-// }

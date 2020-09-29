@@ -1,9 +1,5 @@
 const data = require('../../data.json')
 
-for (let i = 0; i < data.recipes.length; i++) {
-  data.recipes[i].id = i
-}
-
 exports.index = function(req, res) {
   res.render('public/recipes', { recipes: data.recipes })
 }
