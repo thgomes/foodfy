@@ -4,11 +4,16 @@
 
 <main>
   <div class="main-content">
+
+    <form id="deleteForm" method="POST" action="/admin/recipes?_method=DELETE">
+      <input type="hidden" name="id" value="{{recipe.id}}">
+    </form>
+
     <form class="create-recipe" method="POST" action="/admin/recipes?_method=PUT">
       <div>
         <h2>Criando receita</h2>
         <div>
-          <button class="delete-button">Deletar</button>
+          <button class="delete-button" type="submit" form="deleteForm">Deletar</button>
           <button class="save-button" type="submit">Salvar receita</button>
         </div>
       </div>
