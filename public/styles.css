@@ -309,6 +309,10 @@ footer {
 
 }
 
+.create-recipe div input + input {
+  margin-top: 10px;
+}
+
 .create-recipe div:first-of-type {
   display: flex;
   flex-direction: row;
@@ -349,6 +353,7 @@ footer {
   padding: 9px 20px;
   background-color: #6558C3;
   border-radius: 4px;
+  cursor: pointer;
 }
 
 .delete-button {
@@ -359,4 +364,5 @@ footer {
   background-color: #DC4747;
   border-radius: 4px;
   margin-right: 10px;
+  cursor: pointer;
 }

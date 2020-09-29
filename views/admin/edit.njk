@@ -4,36 +4,46 @@
 
 <main>
   <div class="main-content">
-    <form class="create-recipe" action="">
+    <form class="create-recipe" method="POST" action="/admin/recipes?_method=PUT">
       <div>
         <h2>Criando receita</h2>
         <div>
           <button class="delete-button">Deletar</button>
-          <button class="save-button">Salvar receita</button>
+          <button class="save-button" type="submit">Salvar receita</button>
         </div>
       </div>
 
       <div>
         <label for="">Imagem da receita</label>
-        <input type="text">
+        <input type="text" value="{{recipe.image}}">
       </div>
 
       <div>
         <label for="">Ingredientes</label>
-        <input type="text">
+
+        {%for ingredient in recipe.ingredients%}
+          <input type="text" name="ingredients" value="{{ingredient}}">
+        {%endfor%}
+
         <span>Adicionar novo ingrediente</span>
       </div>
 
       <div>
         <label for="">Modo de preparo</label>
-        <input type="text">
+
+        {%for step in recipe.preparation%}
+          <input type="text" name="preparation" value="{{step}}">
+        {%endfor%}
+
         <span>Adicionar novo passo</span>
       </div>
 
       <div>
         <label for="">Informações adicionais</label>
-        <input type="text">
+        <input type="text" name={{recipe.information}} value={{recipe.information}}>
       </div>
+
+      <input type="hidden" name="id" value={{recipe.id}}>
 
     </form>
   </div>
