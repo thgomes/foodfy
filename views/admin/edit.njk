@@ -5,15 +5,15 @@
 <main>
   <div class="main-content">
 
-    <form id="deleteForm" method="POST" action="/admin/recipes?_method=DELETE">
+    <form name="delete-form" id="delete-form" method="POST" action="/admin/recipes?_method=DELETE">
       <input type="hidden" name="id" value="{{recipe.id}}">
     </form>
 
-    <form class="create-recipe" method="POST" action="/admin/recipes?_method=PUT">
+    <form name="recipe-form" class="create-recipe" method="POST" action="/admin/recipes?_method=PUT">
       <div>
         <h2>Criando receita</h2>
         <div>
-          <button class="delete-button" type="submit" form="deleteForm">Deletar</button>
+          <button class="delete-button" type="submit" form="delete-form">Deletar</button>
           <button class="save-button" type="submit">Salvar receita</button>
         </div>
       </div>
@@ -25,12 +25,12 @@
 
       <div>
         <label for="">Ingredientes</label>
-
+        
         {%for ingredient in recipe.ingredients%}
           <input type="text" name="ingredients" value="{{ingredient}}">
         {%endfor%}
 
-        <span>Adicionar novo ingrediente</span>
+        <span class="add-ingredients-field">Adicionar novo ingrediente</span>
       </div>
 
       <div>
@@ -40,7 +40,7 @@
           <input type="text" name="preparation" value="{{step}}">
         {%endfor%}
 
-        <span>Adicionar novo passo</span>
+        <span class="add-preparation-field">Adicionar novo passo</span>
       </div>
 
       <div>
@@ -53,5 +53,7 @@
     </form>
   </div>
 </main>
+
+<script src="/scripts.js"></script>
 
 {% endblock %}

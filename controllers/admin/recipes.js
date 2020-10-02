@@ -33,11 +33,8 @@ exports.edit = function(req, res) {
   return res.render('admin/edit', { recipe })
 }
 
-
-
 exports.post = function(req, res) {
   const keys = Object.keys(req.body)
-
 
   for (key of keys) {
     if (req.body[key] == '') {
@@ -46,14 +43,6 @@ exports.post = function(req, res) {
   }
 
   let { image, title, author, ingredients, preparation, information } = req.body
-
-  ingredients = ingredients.split(',').map(ingredient => {
-    return ingredient.trim()
-  })
-
-  preparation = preparation.split(',').map(step => {
-    return step.trim()
-  })
 
   const id = Number(data.recipes.length + 1)
 
